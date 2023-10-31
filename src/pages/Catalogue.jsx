@@ -1,43 +1,59 @@
 import { useContext } from "preact/hooks";
 import { StateContext } from "../StateProvider";
 
-import cannabisImage from "../assets/img/brote.png";
 
-import { Euro, ListPlus } from "lucide-react";
+import straberryIcon from "../assets/img/strawberry.png"
+import blueberryIcon from "../assets/img/blueberry.png"
+import orangeIcon from "../assets/img/orange2.png"
+import peachIcon from "../assets/img/peach.png"
+import grapesIcon from "../assets/img/grapes.png"
+
+
+
+import { Euro, DollarSign, ListPlus } from "lucide-react";
 
 const catalogueItems = [
   {
     id: 1,
-    imgType: cannabisImage,
-    name: "Njam Njam",
-    THC: "13",
+    imgType: blueberryIcon,
+    name: "Arándano",
+    sugar: "7",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
     price: 7,
   },
   {
     id: 2,
-    imgType: cannabisImage,
-    name: "Cookies",
-    THC: "15",
+    imgType: straberryIcon,
+    name: "Frutilla",
+    sugar: "10",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
     price: 8,
   },
   {
     id: 3,
-    imgType: cannabisImage,
-    name: "Skittlez",
-    THC: "17",
+    imgType: orangeIcon,
+    name: "Naranja",
+    sugar: "20",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
     price: 6,
   },
   {
     id: 4,
-    imgType: cannabisImage,
-    name: "Pinky Jam",
-    THC: "14",
+    imgType: grapesIcon,
+    name: "Uva Malbec",
+    sugar: "12",
+    description:
+      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
+    price: 10,
+  },
+  {
+    id: 5,
+    imgType: peachIcon,
+    name: "Durazno",
+    sugar: "15",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
     price: 10,
@@ -53,13 +69,13 @@ export default function Catalogue() {
     }
 
     // add to cart
-    const newItem = { id, grams: 5, price };
+    const newItem = { id, cant: 1, price };
     setCartItems([...cartItems, newItem]);
   }
 
   return (
-    <div className=" absolute top-10 w-full h-full px-4 py-2  flex flex-col items-center justify-start ">
-      <ul className=" w-full h-fit min-h-[600px] pt-4  flex flex-col items-center justify-start gap-3 ">
+    <div className=" absolute top-10 w-full h-full px-4 py-2  flex flex-col items-center justify-center gap-3 ">
+      <ul className=" w-full h-full min-h-[600px] pt-4 mb-20 flex flex-col items-center justify-start gap-3 ">
         {catalogueItems.map((item) => (
           <li
             className=" w-full h-fit p-4 bg-gradient-to-br from-gray-300 to-gray-500 shadow-inner shadow-gray-200 flex items-center gap-2 rounded-xl"
@@ -74,12 +90,12 @@ export default function Catalogue() {
             </div>
             <div className=" w-4/6 select-none cursor-default pointer-events-none">
               <h2 className=" font-semibold text-xl">{item.name}</h2>
-              <p className=" font-normal italic">{item.THC}% THC</p>
+              <p className=" font-normal italic">{item.sugar}% Azucar agregada</p>
               <p className=" text-xs">{item.description}</p>
             </div>
             <div className=" w-1/6  ml-1 flex flex-col items-end gap-5 ">
               <div className=" flex items-center  cursor-default pointer-events-none">
-                <Euro size={20} />
+                <DollarSign size={20} />
                 <span className="leading-3 text-3xl">{item.price}</span>
               </div>
               <button
@@ -95,6 +111,7 @@ export default function Catalogue() {
           </li>
         ))}
       </ul>
+  
     </div>
   );
 }

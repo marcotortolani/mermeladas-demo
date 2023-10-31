@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import THClogo from "../assets/img/thc.png";
+import jamLogo from "../assets/img/jam.png";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <section className=" w-full h-screen flex flex-col items-center justify-center gap-10 bg-gray-200 text-black">
       <div className=" w-full h-fit p-3 flex flex-col items-center justify-center gap-2">
-        <h1 className=" font-semibold text-5xl font-brand ">La Familia</h1>
-        <h2 className=" text-xl">Productos canábicos y más</h2>
+        <h1 className=" font-semibold text-5xl font-brand ">La Nonna</h1>
+        <h2 className=" text-xl">Productos artesanales</h2>
         <div className=" w-2/5">
-          <img src={THClogo} alt="THC Log" />
+          <img src={jamLogo} alt="Jam Logo Icon" />
         </div>
       </div>
       <div className=" w-3/4 flex flex-col items-center justify-center ">

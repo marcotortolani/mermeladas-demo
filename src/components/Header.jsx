@@ -9,10 +9,10 @@ export default function Header() {
   return (
     <header className=" z-20 absolute top-0 w-full p-1 pb-2 flex justify-center bg-black font-brand text-3xl text-white">
       <div
-        className=" w-fit px-4  bg-gradient-to-r from-green-500 to-pink-400 hover:from-green-400 hover:to-pink-500 hover:scale-105 transition-all bg-clip-text text-transparent cursor-pointer"
+        className=" w-fit px-4  bg-gradient-to-r from-pink-400 to-pink-600 hover:from-green-400 hover:to-pink-500 hover:scale-105 transition-all bg-clip-text text-transparent cursor-pointer"
         onClick={handleClick}
       >
-        La Familia
+        La Nonna
       </div>
     </header>
   );

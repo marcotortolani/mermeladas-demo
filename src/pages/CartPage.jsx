@@ -1,55 +1,69 @@
 import { useContext, useState } from "preact/hooks";
 import { StateContext } from "../StateProvider";
 
-import cannabisImage from "../assets/img/brote.png";
+import straberryIcon from "../assets/img/strawberry.png"
+import blueberryIcon from "../assets/img/blueberry.png"
+import orangeIcon from "../assets/img/orange2.png"
+import peachIcon from "../assets/img/peach.png"
+import grapesIcon from "../assets/img/grapes.png"
 import emptyBox from "../assets/img/empty-box.png";
+
 import { Euro, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 import ItemProduct from "../components/ItemProduct";
 
 const catalogueItems = [
   {
     id: 1,
-    imgType: cannabisImage,
-    name: "Njam Njam",
-    THC: "13",
+    imgType: blueberryIcon,
+    name: "Arándano",
+    sugar: "7",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "7",
+    price: 7,
   },
   {
     id: 2,
-    imgType: cannabisImage,
-    name: "Cookies",
-    THC: "15",
+    imgType: straberryIcon,
+    name: "Frutilla",
+    sugar: "10",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "8",
+    price: 8,
   },
   {
     id: 3,
-    imgType: cannabisImage,
-    name: "Skittlez",
-    THC: "17",
+    imgType: orangeIcon,
+    name: "Naranja",
+    sugar: "20",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "6",
+    price: 6,
   },
   {
     id: 4,
-    imgType: cannabisImage,
-    name: "Pinky Jam",
-    THC: "14",
+    imgType: grapesIcon,
+    name: "Uva Malbec",
+    sugar: "12",
     description:
       "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "10",
+    price: 10,
+  },
+  {
+    id: 5,
+    imgType: peachIcon,
+    name: "Durazno",
+    sugar: "15",
+    description:
+      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
+    price: 10,
   },
 ];
 
-const incrementGrams = 5;
+const increment = 1;
 
 export default function CartPage() {
   const { cartItems, setCartItems } = useContext(StateContext);
-  const [cantGrams, setCantGrams] = useState(incrementGrams);
+  const [cantJar, setCantJar] = useState(increment);
 
   const itemsToShow = cartItems.map((cartItem) => {
     const foundItem = catalogueItems.find((item) => item.id === cartItem.id);
@@ -57,7 +71,7 @@ export default function CartPage() {
   });
 
   const totalCart = cartItems.reduce(function(acumulador, objeto) {
-    return acumulador + (objeto.grams / 5 * objeto.price);
+    return acumulador + (objeto.grams * objeto.price);
   }, 0);
 
 

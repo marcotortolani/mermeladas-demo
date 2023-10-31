@@ -1,56 +1,17 @@
 import { useState, useContext, useEffect } from "preact/hooks";
 import { StateContext } from "../StateProvider";
-import cannabisImage from "../assets/img/brote.png";
+
 import { Euro, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 
-const catalogueItems = [
-  {
-    id: 1,
-    imgType: cannabisImage,
-    name: "Njam Njam",
-    THC: "13",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "7",
-  },
-  {
-    id: 2,
-    imgType: cannabisImage,
-    name: "Cookies",
-    THC: "15",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "8",
-  },
-  {
-    id: 3,
-    imgType: cannabisImage,
-    name: "Skittlez",
-    THC: "17",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "6",
-  },
-  {
-    id: 4,
-    imgType: cannabisImage,
-    name: "Pinky Jam",
-    THC: "14",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: "10",
-  },
-];
-
-const incrementGrams = 5;
+const increment = 1;
 
 export default function ItemProduct({ item }) {
   const { cartItems, setCartItems } = useContext(StateContext);
-  const [cantGrams, setCantGrams] = useState(
-    cartItems.filter((itemCart) => itemCart.id === item.id)[0].grams
+  const [cantJar, setCantJar] = useState(
+    cartItems.filter((itemCart) => itemCart.id === item.id)[0].cant
   );
   const [valueItem, setValueItem] = useState(
-    (cantGrams / 5) *
+    (cantJar / 5) *
       cartItems.filter((itemCart) => itemCart.id === item.id)[0].price
   );
 
@@ -60,7 +21,7 @@ export default function ItemProduct({ item }) {
     const updateItem = cartItems.filter(
       (itemCart) => itemCart.id === item.id
     )[0];
-    updateItem.grams = cantGrams;
+    updateItem.grams = cantJar;
 
     let newCartItems = cartItems.map((itemCart) =>
       itemCart.id !== item.id ? itemCart : updateItem
@@ -68,10 +29,9 @@ export default function ItemProduct({ item }) {
     setCartItems([...newCartItems]);
 
     setValueItem(
-      (cantGrams / 5) *
-        cartItems.filter((itemCart) => itemCart.id === item.id)[0].price
+      cantJar * cartItems.filter((itemCart) => itemCart.id === item.id)[0].price
     );
-  }, [cantGrams]);
+  }, [cantJar]);
 
   function handleRemoveItem(id) {
     const updatedItems = cartItems.filter((item) => item.id !== id);
@@ -80,14 +40,14 @@ export default function ItemProduct({ item }) {
   }
 
   function handleDecrease() {
-    if (cantGrams >= incrementGrams) {
-      setCantGrams(cantGrams - incrementGrams);
+    if (cantJar >= increment) {
+      setCantJar(cantJar - increment);
     }
   }
 
   function handleIncrease() {
-    if (cantGrams < 1000) {
-      setCantGrams(cantGrams + incrementGrams);
+    if (cantJar < 1000) {
+      setCantJar(cantJar + increment);
     }
   }
   return (
@@ -101,7 +61,7 @@ export default function ItemProduct({ item }) {
       </div>
       <div className=" w-4/6 flex flex-col items-start select-none cursor-default">
         <h2 className=" font-semibold text-xl">{item?.name}</h2>
-        <p className=" font-normal italic">{item?.THC}% THC</p>
+        <p className=" font-normal italic">{item.sugar}% azucar agregada</p>
         <div className=" w-full flex">
           <div>
             <input
@@ -109,14 +69,14 @@ export default function ItemProduct({ item }) {
               type="number"
               name=""
               id=""
-              value={cantGrams}
+              value={cantJar}
             />
-            <span>grs</span>
+            <span>frascos</span>
           </div>
           <div className=" flex items-center justify-center gap-2 pointer-events-auto">
             <button
               className={`${
-                cantGrams === 0
+                cantJar === 0
                   ? "bg-sky-100 cursor-default pointer-events-none"
                   : "bg-gray-400 cursor-pointer"
               } w-12 h-8 flex items-center justify-center shadow-sm shadow-black  rounded-md `}
@@ -128,7 +88,7 @@ export default function ItemProduct({ item }) {
 
             <button
               className={`${
-                cantGrams === 1000
+                cantJar === 1000
                   ? "bg-sky-100 cursor-default pointer-events-none"
                   : "bg-gray-400 cursor-pointer"
               } w-12 h-8 flex items-center justify-center shadow-sm shadow-black rounded-md `}
