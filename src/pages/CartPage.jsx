@@ -1,69 +1,18 @@
-import { useContext, useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import { StateContext } from "../StateProvider";
 
-import straberryIcon from "../assets/img/strawberry.png"
-import blueberryIcon from "../assets/img/blueberry.png"
-import orangeIcon from "../assets/img/orange2.png"
-import peachIcon from "../assets/img/peach.png"
-import grapesIcon from "../assets/img/grapes.png"
 import emptyBox from "../assets/img/empty-box.png";
 
 import { Euro, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 import ItemProduct from "../components/ItemProduct";
 
-const catalogueItems = [
-  {
-    id: 1,
-    imgType: blueberryIcon,
-    name: "Arándano",
-    sugar: "7",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: 7,
-  },
-  {
-    id: 2,
-    imgType: straberryIcon,
-    name: "Frutilla",
-    sugar: "10",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: 8,
-  },
-  {
-    id: 3,
-    imgType: orangeIcon,
-    name: "Naranja",
-    sugar: "20",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: 6,
-  },
-  {
-    id: 4,
-    imgType: grapesIcon,
-    name: "Uva Malbec",
-    sugar: "12",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: 10,
-  },
-  {
-    id: 5,
-    imgType: peachIcon,
-    name: "Durazno",
-    sugar: "15",
-    description:
-      "Tempor minim nostrud voluptate ex duis deserunt sit ullamco nostrud sint quis.",
-    price: 10,
-  },
-];
+import { catalogueItems} from "../data/products"
+
 
 const increment = 1;
 
 export default function CartPage() {
   const { cartItems, setCartItems } = useContext(StateContext);
-  const [cantJar, setCantJar] = useState(increment);
 
   const itemsToShow = cartItems.map((cartItem) => {
     const foundItem = catalogueItems.find((item) => item.id === cartItem.id);

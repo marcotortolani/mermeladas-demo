@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "preact/hooks";
 import { StateContext } from "../StateProvider";
 
-import { Euro, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
+import { Euro, DollarSign, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 
 const increment = 1;
 
@@ -54,9 +54,9 @@ export default function ItemProduct({ item }) {
     <>
       <div className=" w-1/6 h-full flex items-start ">
         <img
-          className=" w-auto h-1/3 select-none pointer-events-none "
+          className=" w-4/5 h-auto select-none pointer-events-none "
           src={item?.imgType}
-          alt="Tipo de especie"
+          alt="Tipo de mermelada"
         />
       </div>
       <div className=" w-4/6 flex flex-col items-start select-none cursor-default">
@@ -102,7 +102,7 @@ export default function ItemProduct({ item }) {
       </div>
       <div className=" w-1/6  ml-1 flex flex-col items-end gap-5 ">
         <div className=" flex items-center  cursor-default pointer-events-none">
-          <Euro size={20} />
+          <DollarSign size={20} />
           <span className="leading-3 text-3xl">{valueItem}</span>
         </div>
         <button

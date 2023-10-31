@@ -23,7 +23,7 @@ export default function Profile() {
           <img src={imageCodeQR} alt="QR Code" />
         </div>
       </div>
-      <div className=" w-full p-4 border-solid border-2 border-gray-400 bg-gradient-to-br from-green-400 to-pink-400 shadow-md shadow-gray-800 flex flex-col items-start justify-center gap-4 rounded-2xl">
+      <div className=" w-full p-4 border-solid border-2 border-gray-400 bg-gradient-to-br from-pink-600 to-pink-300 shadow-md shadow-gray-800 flex flex-col items-start justify-center gap-4 rounded-2xl">
         <span className=" text-2xl text-white font-bold uppercase">{userData.nameUser}</span>
         <span className=" text-xl text-sky-700">Socio #{userData.id}</span>
         <span className=" text-xl">{userData.adress}</span>
