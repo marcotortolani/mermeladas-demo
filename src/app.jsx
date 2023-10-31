@@ -14,7 +14,7 @@ import Navbar from "./components/Navbar";
 
 export function App() {
   return (
-    <main className=" w-screen min-h-screen overflow-y-scroll flex flex-col items-center justify-center bg-white text-black font-text">
+    <main className=" w-screen min-h-screen  flex flex-col items-center justify-center bg-white text-black font-text">
       <StateProvider>
         <Header />
         <Routes>

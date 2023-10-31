@@ -74,8 +74,8 @@ export default function Catalogue() {
   }
 
   return (
-    <div className=" absolute top-10 w-full h-full px-4 py-2  flex flex-col items-center justify-center gap-3 ">
-      <ul className=" w-full h-full min-h-[600px] pt-4 mb-20 flex flex-col items-center justify-start gap-3 ">
+    <div className=" relative top-14 w-full h-full px-4 py-2  flex flex-col items-center justify-center gap-3 ">
+      <ul className=" w-full h-full min-h-screen pt-4 flex flex-col items-center justify-start gap-3 ">
         {catalogueItems.map((item) => (
           <li
             className=" w-full h-fit p-4 bg-gradient-to-br from-gray-300 to-gray-500 shadow-inner shadow-gray-200 flex items-center gap-2 rounded-xl"
@@ -111,7 +111,7 @@ export default function Catalogue() {
           </li>
         ))}
       </ul>
-  
+  <div className=" w-full h-20 bg-transparent content-normal" />
     </div>
   );
 }
