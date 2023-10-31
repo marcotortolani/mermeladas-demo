@@ -3,10 +3,10 @@ import { StateContext } from "../StateProvider";
 
 import emptyBox from "../assets/img/empty-box.png";
 
-import { Euro, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 import ItemProduct from "../components/ItemProduct";
 
 import { catalogueItems} from "../data/products"
+import { DollarSign } from "lucide-react";
 
 
 const increment = 1;
@@ -41,7 +41,7 @@ export default function CartPage() {
           <div className="  w-full h-fit p-4 min-h-20 flex items-center justify-between bg-gray-200 rounded-2xl">
             <span className=" font-medium text-xl">Total:</span>
             <div className=" flex items-center  cursor-default pointer-events-none">
-              <Euro size={20} />
+              <DollarSign size={20} />
               <span className="leading-3 text-3xl">{totalCart}</span>
             </div>
           </div>

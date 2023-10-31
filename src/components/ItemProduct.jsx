@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "preact/hooks";
 import { StateContext } from "../StateProvider";
 
-import { Euro, DollarSign, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
+import { DollarSign, XOctagon, MinusCircle, PlusCircle } from "lucide-react";
 
 const increment = 1;
 
