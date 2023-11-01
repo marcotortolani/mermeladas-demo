@@ -3,7 +3,7 @@ import { StateContext } from "../StateProvider";
 
 import emptyBox from "../assets/img/empty-box.png";
 
-import ItemProduct from "../components/ItemProduct";
+import ItemCart from "../components/ItemCart";
 
 import { catalogueItems} from "../data/products"
 import { DollarSign } from "lucide-react";
@@ -20,7 +20,7 @@ export default function CartPage() {
   });
 
   const totalCart = cartItems.reduce(function(acumulador, objeto) {
-    return acumulador + (objeto.grams * objeto.price);
+    return acumulador + (objeto.cant * objeto.price);
   }, 0);
 
 
@@ -28,13 +28,13 @@ export default function CartPage() {
     <div className="  w-full h-full px-4 py-2 flex flex-col items-center justify-start gap-2 ">
       {cartItems.length !== 0 ? (
         <>
-          <ul className=" w-full h-fit py-4 mt-20 flex flex-col items-center justify-start gap-3  ">
+          <ul className=" w-full h-fit  py-4 mt-20 flex flex-col items-center justify-start gap-3  ">
             {itemsToShow.map((item) => (
               <li
-                className=" w-full h-fit p-4 bg-gradient-to-r from-sky-100 to-sky-300 shadow-inner shadow-gray-200 flex items-start gap-2 rounded-xl"
+                className=" w-full h-fit min-h-[120px] p-4 bg-gradient-to-r from-sky-100 to-sky-300 shadow-inner shadow-gray-200 flex items-start gap-2 rounded-xl"
                 key={item.id}
               >
-                <ItemProduct item={item} />
+                <ItemCart item={item} />
               </li>
             ))}
           </ul>
