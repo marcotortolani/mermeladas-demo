@@ -1,4 +1,3 @@
-import { useContext } from "preact/hooks";
 import { StateProvider } from "./StateProvider";
 import { Routes, Route } from "react-router-dom";
 
