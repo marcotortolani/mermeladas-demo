@@ -15,6 +15,8 @@ import {
   LinkedinIcon,
 } from 'react-share';
 
+const URL_APP = 'https://mermeladas-demo.vercel.app/';
+
 export default function ShareSocialMedia() {
   const [boxIsOpen, setBoxIsOpen] = useState(false);
 
@@ -34,25 +36,22 @@ export default function ShareSocialMedia() {
       >
         Box Social Media
         <div className=' flex items-center justify-center flex-wrap gap-2'>
-          <FacebookShareButton url={'https://mermeladas-demo.vercel.app/'}>
+          <FacebookShareButton url={URL_APP}>
             <FacebookIcon size={40} borderRadius={100} />
           </FacebookShareButton>
           <FacebookMessengerShareButton>
             <FacebookMessengerIcon size={40} borderRadius={100} />
           </FacebookMessengerShareButton>
-          <TwitterShareButton url={'https://mermeladas-demo.vercel.app/'}>
+          <TwitterShareButton url={URL_APP}>
             <XIcon size={40} borderRadius={100} />
           </TwitterShareButton>
-          <WhatsappShareButton
-            title='Mira esta app increible'
-            url={'https://mermeladas-demo.vercel.app/'}
-          >
+          <WhatsappShareButton title='Mira esta app increible' url={URL_APP}>
             <WhatsappIcon size={40} borderRadius={100} />
           </WhatsappShareButton>
-          <TelegramShareButton>
+          <TelegramShareButton url={URL_APP}>
             <TelegramIcon size={40} borderRadius={100} />
           </TelegramShareButton>
-          <LinkedinShareButton>
+          <LinkedinShareButton url={URL_APP}>
             <LinkedinIcon size={40} borderRadius={100} />
           </LinkedinShareButton>
         </div>
