@@ -3,12 +3,16 @@ import { Share2Icon } from 'lucide-react';
 import {
   FacebookShareButton,
   FacebookIcon,
+  FacebookMessengerShareButton,
+  FacebookMessengerIcon,
   TelegramShareButton,
   TelegramIcon,
   TwitterShareButton,
   XIcon,
   WhatsappShareButton,
   WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
 } from 'react-share';
 
 export default function ShareSocialMedia() {
@@ -25,23 +29,32 @@ export default function ShareSocialMedia() {
       </button>
       <div
         className={`${
-          boxIsOpen ? ' scale-y-100' : ' scale-y-0'
-        } transition-all duration-150 ease-in-out  absolute -top-2 -translate-y-[100%] h-fit w-5/6 p-4 bg-pink-400/50 shadow-md shadow-black backdrop-blur-md rounded-xl`}
+          boxIsOpen ? ' scale-100' : ' scale-0'
+        } transition-all duration-300 ease-in-out  absolute -top-2 -translate-y-[100%] h-fit w-5/6 max-w-[350px] p-4 bg-pink-400/50 shadow-md shadow-black backdrop-blur-md rounded-xl`}
       >
         Box Social Media
-        <div className=' flex items-center justify-center gap-2'>
+        <div className=' flex items-center justify-center flex-wrap gap-2'>
           <FacebookShareButton url={'https://mermeladas-demo.vercel.app/'}>
-            <FacebookIcon borderRadius={100} />
+            <FacebookIcon size={40} borderRadius={100} />
           </FacebookShareButton>
+          <FacebookMessengerShareButton>
+            <FacebookMessengerIcon size={40} borderRadius={100} />
+          </FacebookMessengerShareButton>
           <TwitterShareButton url={'https://mermeladas-demo.vercel.app/'}>
-            <XIcon borderRadius={100} />
+            <XIcon size={40} borderRadius={100} />
           </TwitterShareButton>
           <WhatsappShareButton
             title='Mira esta app increible'
             url={'https://mermeladas-demo.vercel.app/'}
           >
-            <WhatsappIcon borderRadius={100} />
+            <WhatsappIcon size={40} borderRadius={100} />
           </WhatsappShareButton>
+          <TelegramShareButton>
+            <TelegramIcon size={40} borderRadius={100} />
+          </TelegramShareButton>
+          <LinkedinShareButton>
+            <LinkedinIcon size={40} borderRadius={100} />
+          </LinkedinShareButton>
         </div>
       </div>
     </div>
